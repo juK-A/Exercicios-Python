@@ -1,0 +1,479 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMOAKmYeDycTuOSs+VkmKQy",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/juK-A/Exercicios-Python/blob/main/Exercicios%20lista.jpynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 1: Crie uma função que conte o número de vogais em uma string.\n",
+        "\n",
+        "def conta_vogais(string):\n",
+        "  vogais = 'AEIOUaeiou'\n",
+        "  tot_de_vogais = 0\n",
+        "  for letra in string:\n",
+        "    if letra in vogais:\n",
+        "      tot_de_vogais += 1\n",
+        "  return tot_de_vogais\n",
+        "\n",
+        "n = input(\"Digite uma palavra: \")\n",
+        "print(f\"A palavra '{n}' tem {conta_vogais(n)} vogais.\")\n"
+      ],
+      "metadata": {
+        "id": "wOI2rplS2DmL"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#2: Escreva um programa que substitua todas as ocorrências de uma letra em uma string por outra letra.\n",
+        "\n",
+        "def substitui_letra(palavra, letra_antiga, letra_nova):\n",
+        "  nova_palavra = ''\n",
+        "  for letra in palavra:\n",
+        "    if letra == letra_antiga:\n",
+        "      nova_palavra += letra_nova\n",
+        "    else:\n",
+        "      nova_palavra += letra\n",
+        "  return nova_palavra\n",
+        "\n",
+        "palavra = input(\"Digite uma palavra: \")\n",
+        "letra_antiga = input(\"Digite a letra antiga: \")\n",
+        "letra_nova = input(\"Digite a letra nova: \")\n",
+        "\n",
+        "print(f\"A string '{palavra}' com a letra '{letra_antiga}' substituída por '{letra_nova}' é: '{substitui_letra(palavra, letra_antiga, letra_nova)}'\")\n"
+      ],
+      "metadata": {
+        "id": "dDppUWAU3-Rp"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#3. Crie uma função que retorne o número de palavras em uma string.\n",
+        "\n",
+        "def num_palavras(string):\n",
+        "  palavras = string.split()\n",
+        "  return len(palavras)\n",
+        "\n",
+        "frase = input(\"Digite uma frase: \")\n",
+        "print(f\"A frase '{frase}' tem {num_palavras(frase)} palavras.\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "rXeXKCbQ7f8x",
+        "outputId": "79fa29cf-8e93-492e-abd8-ee921270d47d"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Digite uma frase: falafel do fil\n",
+            "A frase 'falafel do fil' tem 3 palavras.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#4. Crie uma função que conte o número de ocorrências de uma determinada palavra em uma frase.\n",
+        "\n",
+        "def conta_ocorrencias(frase, palavra):\n",
+        "  palavras = frase.split()\n",
+        "  return palavras.count(palavra)\n",
+        "\n",
+        "frase = input(\"Digite uma frase: \")\n",
+        "palavra = input(\"Digite a palavra a ser contada: \")\n",
+        "print(f\"A palavra '{palavra}' aparece {conta_ocorrencias(frase, palavra)} vezes na frase '{frase}'.\")\n"
+      ],
+      "metadata": {
+        "id": "efMKB9WF_6Bh"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "num = int(input('Digite a quantidade de elementos: '))\n",
+        "qnt = [0] * num\n",
+        "for i in range(0,num):\n",
+        " qnt[i] = int(input(\"Digite os elementos: \"))\n",
+        "\n",
+        "print(f\"Lista original: \",qnt)\n",
+        "qnt.sort()\n",
+        "qnt.reverse()\n",
+        "\n",
+        "print(f\"Dois maiores números: {qnt[0]}, {qnt[1]}\")\n"
+      ],
+      "metadata": {
+        "id": "1UMgoaDGLDrF",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "bce378f1-ddc7-44f9-a98f-f76fe9f93540"
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Digite a quantidade de elementos: 2\n",
+            "Digite os elementos: 12\n",
+            "Digite os elementos: 21\n",
+            "Lista original:  [12, 21]\n",
+            "Dois maiores números: 21, 12\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def soma_matrizes(matriz1, matriz2):\n",
+        "    if len(matriz1) != len(matriz2) or len(matriz1[0]) != len(matriz2[0]):\n",
+        "        return None\n",
+        "\n",
+        "    resultado = []\n",
+        "    for i in range(len(matriz1)):\n",
+        "        linha = []\n",
+        "        for j in range(len(matriz1[0])):\n",
+        "            linha.append(matriz1[i][j] + matriz2[i][j])\n",
+        "        resultado.append(linha)\n",
+        "\n",
+        "    return resultado\n",
+        "\n",
+        "\n",
+        "matriz1 = [[1, 2], [3, 4]]\n",
+        "matriz2 = [[5, 6], [7, 8]]\n",
+        "print(soma_matrizes(matriz1, matriz2))"
+      ],
+      "metadata": {
+        "id": "PKZ3pPFGScgw"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def intersecao(lista1, lista2):\n",
+        "    intersecao = []\n",
+        "    for elemento in lista1:\n",
+        "        if elemento in lista2 and elemento not in intersecao:\n",
+        "            intersecao.append(elemento)\n",
+        "    return intersecao\n",
+        "\n",
+        "lista1 = [1, 2, 3, 4, 5]\n",
+        "lista2 = [3, 4, 5, 6, 7]\n",
+        "print(intersecao(lista1, lista2))"
+      ],
+      "metadata": {
+        "id": "5piuPVkBDPkf"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import random\n",
+        "\n",
+        "def embaralhar(lista):\n",
+        "    random.shuffle(lista)\n",
+        "    return lista\n",
+        "\n",
+        "\n",
+        "lista = [1, 2, 3, 4, 5]\n",
+        "print(embaralhar(lista))"
+      ],
+      "metadata": {
+        "id": "W04-gHxkDSfC"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def encontrar_par(lista, soma):\n",
+        "    pares = []\n",
+        "    for i in range(len(lista)):\n",
+        "        for j in range(i + 1, len(lista)):\n",
+        "            if lista[i] + lista[j] == soma:\n",
+        "                pares.append((lista[i], lista[j]))\n",
+        "    return pares\n",
+        "\n",
+        "lista = [1, 2, 3, 4, 5]\n",
+        "soma = 6\n",
+        "print(encontrar_par(lista, soma))"
+      ],
+      "metadata": {
+        "id": "N4To0dWLDUIO"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def calcular_frequencia(texto):\n",
+        "    palavras = texto.split()\n",
+        "    frequencia = {}\n",
+        "    for palavra in palavras:\n",
+        "        frequencia[palavra] = frequencia.get(palavra, 0) + 1\n",
+        "    return frequencia\n",
+        "\n",
+        "texto = \"o rato roeu a roupa do rei de roma\"\n",
+        "print(calcular_frequencia(texto))"
+      ],
+      "metadata": {
+        "id": "XpeHdeINDVmG"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def eh_primo(numero):\n",
+        "    if numero <= 1:\n",
+        "        return False\n",
+        "    for i in range(2, int(numero ** 0.5) + 1):\n",
+        "        if numero % i == 0:\n",
+        "            return False\n",
+        "    return True\n",
+        "\n",
+        "def encontrar_primos(lista):\n",
+        "    primos = []\n",
+        "    for numero in lista:\n",
+        "        if eh_primo(numero):\n",
+        "            primos.append(numero)\n",
+        "    return primos\n",
+        "\n",
+        "numeros = [2, 3, 4, 5, 6, 7, 8, 9, 10]\n",
+        "print(encontrar_primos(numeros))"
+      ],
+      "metadata": {
+        "id": "QJegrS-HDXO0"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def encontrar_menor_string(lista):\n",
+        "    menor = lista[0]\n",
+        "    for string in lista:\n",
+        "        if len(string) < len(menor):\n",
+        "            menor = string\n",
+        "    return menor\n",
+        "\n",
+        "\n",
+        "strings = [\"banana\", \"maçã\", \"pera\", \"uva\"]\n",
+        "print(encontrar_menor_string(strings))"
+      ],
+      "metadata": {
+        "id": "UFRcStzcDZAg"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def ler_arquivo_texto(nome_arquivo):\n",
+        "    with open(nome_arquivo, 'r') as arquivo:\n",
+        "        conteudo = arquivo.read()\n",
+        "    return conteudo\n",
+        "\n",
+        "conteudo = ler_arquivo_texto('arquivo.txt')\n",
+        "print(conteudo)"
+      ],
+      "metadata": {
+        "id": "vdB_FWEFDs9H"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import csv\n",
+        "\n",
+        "def ler_arquivo_csv(nome_arquivo):\n",
+        "    with open(nome_arquivo, 'r', newline='') as arquivo:\n",
+        "        leitor_csv = csv.reader(arquivo)\n",
+        "        dados = list(leitor_csv)\n",
+        "    return dados\n",
+        "\n",
+        "\n",
+        "dados_csv = ler_arquivo_csv('arquivo.csv')\n",
+        "print(dados_csv)\n"
+      ],
+      "metadata": {
+        "id": "cI59yDzzDwzK"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import os\n",
+        "\n",
+        "def consolidar_arquivos_texto(diretorio):\n",
+        "    conteudo_total = ''\n",
+        "    for arquivo in os.listdir(diretorio):\n",
+        "        if arquivo.endswith('.txt'):\n",
+        "            with open(os.path.join(diretorio, arquivo), 'r') as arquivo_atual:\n",
+        "                conteudo_total += arquivo_atual.read() + '\\n'\n",
+        "    return conteudo_total\n",
+        "\n",
+        "\n",
+        "conteudo_total = consolidar_arquivos_texto('diretorio')\n",
+        "print(conteudo_total)\n"
+      ],
+      "metadata": {
+        "id": "w5yQyMChDy5m"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import csv\n",
+        "\n",
+        "def mes_mais_vendas(nome_arquivo):\n",
+        "    meses_vendas = {}\n",
+        "    with open(nome_arquivo, 'r', newline='') as arquivo:\n",
+        "        leitor_csv = csv.reader(arquivo)\n",
+        "        next(leitor_csv)\n",
+        "        for linha in leitor_csv:\n",
+        "            mes, vendas = linha\n",
+        "            meses_vendas[mes] = meses_vendas.get(mes, 0) + int(vendas)\n",
+        "    return max(meses_vendas, key=meses_vendas.get)\n",
+        "\n",
+        "mes = mes_mais_vendas('vendas.csv')\n",
+        "print(f\"O mês com mais vendas foi: {mes}\")\n"
+      ],
+      "metadata": {
+        "id": "PFlZ_xvwD1R_"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import csv\n",
+        "\n",
+        "def mes_menos_vendas(nome_arquivo):\n",
+        "    meses_vendas = {}\n",
+        "    with open(nome_arquivo, 'r', newline='') as arquivo:\n",
+        "        leitor_csv = csv.reader(arquivo)\n",
+        "        next(leitor_csv)\n",
+        "        for linha in leitor_csv:\n",
+        "            mes, vendas = linha\n",
+        "            meses_vendas[mes] = meses_vendas.get(mes, 0) + int(vendas)\n",
+        "    return min(meses_vendas, key=meses_vendas.get)\n",
+        "\n",
+        "\n",
+        "mes = mes_menos_vendas('vendas.csv')\n",
+        "print(f\"O mês com menos vendas foi: {mes}\")"
+      ],
+      "metadata": {
+        "id": "6bcvnYviD9Ti"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import csv\n",
+        "\n",
+        "def soma_vendas_por_vendedor(nome_arquivo):\n",
+        "    vendas_vendedor = {}\n",
+        "    with open(nome_arquivo, 'r', newline='') as arquivo:\n",
+        "        leitor_csv = csv.reader(arquivo)\n",
+        "        next(leitor_csv)\n",
+        "        for linha in leitor_csv:\n",
+        "            vendedor, valor_venda = linha\n",
+        "            vendas_vendedor[vendedor] = vendas_vendedor.get(vendedor, 0) + float(valor_venda)\n",
+        "    return vendas_vendedor\n",
+        "\n",
+        "vendas = soma_vendas_por_vendedor('vendas.csv')\n",
+        "print(vendas)"
+      ],
+      "metadata": {
+        "id": "doE9xIewEBRs"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import csv\n",
+        "\n",
+        "def vendedor_max_min_vendas(nome_arquivo):\n",
+        "    vendas_vendedor = {}\n",
+        "    with open(nome_arquivo, 'r', newline='') as arquivo:\n",
+        "        leitor_csv = csv.reader(arquivo)\n",
+        "        next(leitor_csv)\n",
+        "        for linha in leitor_csv:\n",
+        "            vendedor, valor_venda = linha\n",
+        "            vendas_vendedor[vendedor] = vendas_vendedor.get(vendedor, 0) + float(valor_venda)\n",
+        "    vendedor_max = max(vendas_vendedor, key=vendas_vendedor.get)\n",
+        "    vendedor_min = min(vendas_vendedor, key=vendas_vendedor.get)\n",
+        "    return vendedor_max, vendedor_min\n",
+        "\n",
+        "\n",
+        "vendedor_max, vendedor_min = vendedor_max_min_vendas('vendas.csv')\n",
+        "print(f\"O vendedor que mais vendeu foi: {vendedor_max}\")\n",
+        "print(f\"O vendedor que menos vendeu foi: {vendedor_min}\")"
+      ],
+      "metadata": {
+        "id": "WQf0D1zWECvd"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
